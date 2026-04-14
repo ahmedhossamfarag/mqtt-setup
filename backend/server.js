@@ -7,6 +7,8 @@ const MQTT_BROKER = 'mqtt://localhost';
 const MQTT_PORT = 1883;
 const MQTT_TOPIC = 'test/topic';
 const SERVER_PORT = 3000;
+const MQTT_USERNAME = "testuser";
+const MQTT_PASSWORD = "password";
 
 // Create an Express application
 
@@ -14,7 +16,10 @@ const app = express();
 
 // Connect to the MQTT broker
 
-const client = mqtt.connect(`${MQTT_BROKER}:${MQTT_PORT}`);
+const client = mqtt.connect(`${MQTT_BROKER}:${MQTT_PORT}`, {
+  username: MQTT_USERNAME,
+  password: MQTT_PASSWORD
+});
 
 client.on('connect', () => {
   console.log('Connected to MQTT broker');
