@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt-broker
+    ports:
+      - "8883:8883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/cert:/mosquitto/cert
+      - ./mosquitto/data:/mosquitto/data
+    restart: unless-stopped
+
+  edge:
+    build: ./edge-nodes
+    volumes:
+      - ./mosquitto/cert:/cert
+    depends_on:
+      - mqtt
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mosquitto/cert:/cert
+    depends_on:
+      - mqtt

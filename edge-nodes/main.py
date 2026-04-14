@@ -3,12 +3,12 @@ import time
 
 # MQTT Broker settings
 
-MQTT_BROKER = "localhost"
+MQTT_BROKER = "mqtt"
 MQTT_PORT = 8883
 MQTT_TOPIC = "test/topic"
 MQTT_USERNAME = "testuser"
 MQTT_PASSWORD = "password"
-TLS_CA_FILE = "cert/ca.crt"
+TLS_CA_FILE = "/cert/ca.crt"
 
 # Create MQTT client and connect to broker
 

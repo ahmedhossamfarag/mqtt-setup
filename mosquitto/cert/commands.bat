@@ -8,4 +8,6 @@ openssl req -out client.csr -key client.key -new
 openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 365
 @REM Use "password" as the password when prompted for the private keys.
 @REM Use "localhost" as the Common Name (CN) when prompted for the server certificate.
+@REM Run 'openssl rsa -in server.key -out server.key' to remove the passphrase from the server key 
+@REM Run 'openssl rsa -in client.key -out client.key' to remove the passphrase from the client key
 echo Certificate created.

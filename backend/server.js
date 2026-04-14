@@ -4,13 +4,13 @@ const fs = require('fs');
 
 // Configuration
 
-const MQTT_BROKER = 'mqtt://localhost';
+const MQTT_BROKER = 'mqtt://mqtt';
 const MQTT_PORT = 8883;
 const MQTT_TOPIC = 'test/topic';
 const SERVER_PORT = 3000;
 const MQTT_USERNAME = "testuser";
 const MQTT_PASSWORD = "password";
-const TLS_CA_FILE = "cert/ca.crt";
+const TLS_CA_FILE = "/cert/ca.crt";
 
 // Create an Express application
 
