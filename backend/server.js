@@ -5,7 +5,7 @@ const fs = require('fs');
 // Configuration
 
 const MQTT_BROKER = 'mqtt://localhost';
-const MQTT_PORT = 1883;
+const MQTT_PORT = 8883;
 const MQTT_TOPIC = 'test/topic';
 const SERVER_PORT = 3000;
 const MQTT_USERNAME = "testuser";

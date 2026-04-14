@@ -4,7 +4,7 @@ import time
 # MQTT Broker settings
 
 MQTT_BROKER = "localhost"
-MQTT_PORT = 1883
+MQTT_PORT = 8883
 MQTT_TOPIC = "test/topic"
 MQTT_USERNAME = "testuser"
 MQTT_PASSWORD = "password"
