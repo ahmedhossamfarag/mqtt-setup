@@ -1,5 +1,6 @@
 const express = require('express');
 const mqtt = require('mqtt');
+const fs = require('fs');
 
 // Configuration
 
@@ -9,6 +10,7 @@ const MQTT_TOPIC = 'test/topic';
 const SERVER_PORT = 3000;
 const MQTT_USERNAME = "testuser";
 const MQTT_PASSWORD = "password";
+const TLS_CA_FILE = "cert/ca.crt";
 
 // Create an Express application
 
@@ -17,8 +19,10 @@ const app = express();
 // Connect to the MQTT broker
 
 const client = mqtt.connect(`${MQTT_BROKER}:${MQTT_PORT}`, {
+  protocol: 'mqtts',
   username: MQTT_USERNAME,
-  password: MQTT_PASSWORD
+  password: MQTT_PASSWORD,
+  ca: fs.readFileSync(TLS_CA_FILE)
 });
 
 client.on('connect', () => {
